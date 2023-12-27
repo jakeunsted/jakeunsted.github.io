@@ -18,7 +18,7 @@ import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 
 export default {
-  name: 'AppNavbar',
+  name: 'NavigationBarMobile',
   props: {
     currentPage: {
       type: String,

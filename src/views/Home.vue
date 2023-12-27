@@ -1,9 +1,10 @@
 <template>
-  <NavigationBarDesktop current-page="Home" />
-  <h1>home</h1>
+  <NavigationBarMobile v-if="isMobile" current-page="Home" />
+  <NavigationBarDesktop v-else current-page="Home" />
 </template>
 
 <script>
+  import { ref, onMounted, onBeforeUnmount } from 'vue'
   import NavigationBarDesktop from '@/components/nav/NavigationBarDesktop.vue'
   import NavigationBarMobile from '@/components/nav/NavigationBarMobile.vue'
   export default {
@@ -11,9 +12,23 @@
     NavigationBarDesktop,
     NavigationBarMobile
   },
-  data() {
+  setup() {
+    const isMobile = ref(window.innerWidth <= 600);
+
+    const handleResize = () => {
+      isMobile.value = window.innerWidth <= 600;
+    };
+
+    onMounted(() => {
+      window.addEventListener('resize', handleResize);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', handleResize);
+    });
+
     return {
-      darkMode: false, // Initial value for dark mode
+      isMobile,
     };
   },
   watch: {

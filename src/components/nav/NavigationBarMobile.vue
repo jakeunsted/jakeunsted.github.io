@@ -1,12 +1,36 @@
 <template>
   <v-app>
+    <v-navigation-drawer v-model="drawer" app color="primary">
+      <v-list>
+        <v-list-item to="/" :class="{ 'primary': currentPage === 'Home' }">
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item>
+        <v-list-item to="/contact" :class="{ 'primary': currentPage === 'Contact' }">
+          <v-list-item-title>Contact</v-list-item-title>
+        </v-list-item>
+        <v-divider></v-divider>
+        <v-list-item to="/projects" :class="{ 'primary': currentPage === 'Projects' }">
+          <v-list-item-title>Projects</v-list-item-title>
+        </v-list-item>
+        <v-list-item-group>
+          <v-list-item
+            v-for="(item, index) in items"
+            :key="index"
+            :value="index"
+          >
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+
     <v-app-bar app color="primary">
       <v-switch v-model="isDarkMode" class="ml-2 theme-switch" @click="toggleTheme"></v-switch>
       <v-toolbar-title class="text-left">Jake Unsted</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn to="/" text :class="{ 'primary': currentPage === 'Home' }">Home</v-btn>
-      <v-btn to="/projects" text :class="{ 'primary': currentPage === 'Projects' }">Projects</v-btn>
-      <v-btn to="/contact" text :class="{ 'primary': currentPage === 'Contact' }">Contact</v-btn>
+      <v-btn icon @click.stop="drawer = !drawer">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <router-view></router-view>
@@ -39,12 +63,13 @@ export default {
       isDarkMode
     }
   },
-  data() {
-    return {
-      darkMode: false, // Initial value for dark mode
-    };
-  },
-
+  data: () => ({
+    items: [
+      { title: 'GTM Page Scraper', to: '/projects' },
+      { title: 'Parental Control Server', to: '/' },
+    ],
+    drawer: false,
+  }),
 };
 </script>
 

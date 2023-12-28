@@ -25,10 +25,10 @@
     WaveBackground
   },
   setup() {
-    const isMobile = ref(window.innerWidth <= 600);
+    const isMobile = ref(window.innerWidth <= 900);
 
     const handleResize = () => {
-      isMobile.value = window.innerWidth <= 600;
+      isMobile.value = window.innerWidth <= 900;
     };
 
     onMounted(() => {
@@ -51,10 +51,3 @@
   },
 };
 </script>
-
-<style scoped>
-.nav-bar {
-  position: relative;
-  z-index: 2;
-}
-</style>

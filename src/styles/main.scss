@@ -1,3 +1,7 @@
-// @use 'vuetify' with (
-//   $variable: false !default,
-// );
+@use 'vuetify' with (
+  $utilities: false,
+  $color-pack: false,
+);
+
+@import 'position.scss';
+@import 'nav.scss';

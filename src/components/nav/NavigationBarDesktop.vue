@@ -1,5 +1,4 @@
 <template>
-  <v-app>
     <v-app-bar app color="primary">
       <v-switch v-model="isDarkMode" class="ml-2 theme-switch" @click="toggleTheme"></v-switch>
       <v-toolbar-title class="text-left">Jake Unsted</v-toolbar-title>
@@ -27,9 +26,7 @@
       </v-menu>
       <v-btn to="/contact" text :class="{ 'primary': currentPage === 'Contact' }">Contact</v-btn>
     </v-app-bar>
-
-    <router-view></router-view>
-  </v-app>
+    <!-- <router-view></router-view> -->
 </template>
 
 <script>

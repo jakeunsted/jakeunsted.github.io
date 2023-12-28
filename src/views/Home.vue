@@ -5,7 +5,11 @@
       <NavigationBarDesktop v-else current-page="Home" />
     </div>
     
-    <WaveBackground class="wave-background"/>
+    <WaveBackground class="wave-background">
+      <div class="header-content">
+        <h1>Hey</h1>
+      </div>
+    </WaveBackground>
   </v-app>
 </template>
 

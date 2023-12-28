@@ -19,9 +19,9 @@ export default {
 <style>
 .curve {
   background-image: url('../../assets/waves/wave-haikei.svg');
-  background-position: center;
-  background-size: cover;
+  /* background-position: center; */
+  background-size: contain;
   height: 100%;
-  margin-top: -200px
+  /* margin-top: -200px */
 }
 </style>
